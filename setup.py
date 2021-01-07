@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="palazzetti_sdk_asset_parser",
-    version="1.0.2",
+    version="1.0.4",
     author="Palazzetti Lelio Spa",
     author_email="info@palazzetti.it",
     description="IoT Device Capability Parser",
@@ -19,5 +19,5 @@ setuptools.setup(
         'six'
     ],
     python_requires='>=3.6',
-    data_files=[('data', ['palazzetti_sdk_asset_parser/data/asset_parser.json'])]
+    include_package_data=True
 )
