@@ -13,7 +13,11 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/palazzetti/palazzetti-sdk-asset-parser-python",
     packages=setuptools.find_packages(),
-    install_requires=list(val.strip() for val in open('requirements.txt')),
+    install_requires=[
+        'protobuf',
+        'semver',
+        'six'
+    ],
     python_requires='>=3.6',
     data_files=[('data', ['data/asset_parser.json'])]
 )
