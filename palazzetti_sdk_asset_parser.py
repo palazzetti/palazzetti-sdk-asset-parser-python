@@ -1,10 +1,9 @@
-#!/usr/bin/python
-
 import json
 import logging
 import os
 import sys
 import numbers
+import collections
 import pkgutil
 import semver
 
@@ -321,6 +320,16 @@ class AssetParser(object):
 
         return source_dict[k]
 
+    def __formatted_version(self, raw_version=""):
+
+        version_parts = raw_version.replace('\n','').replace('\r','').split(".")
+
+        version = collections.defaultdict(int) # default to zero, change as needed
+        for n, x in enumerate(version_parts):
+            version[n] = x
+
+        return (version[0] or "0") + "." + (version[1] or "0") + "." + (version[2] or "0")
+
     def __evaluate(self, statement):
 
         optional_value = self.__value(statement["path"], statement["key"])
@@ -377,19 +386,19 @@ class AssetParser(object):
             except:
                 return False
 
-        # case "vgt":
-        #     try {
-        #         return (scmp(this.formattedVersion(_optionalValue), this.formattedVersion(statement["value"])) > 0);
-        #     } catch (ex) { return false; };
-        #     break;
-        # case "vgte":
-        #     try {
-        #         return (scmp(this.formattedVersion(_optionalValue), this.formattedVersion(statement["value"])) >= 0);
-        #     } catch (ex) { return false; };
-        #     break;
-        
-        return False
-        
+        if operator == "vgt":
+            try:
+                return True if semver.compare(self.__formatted_version(optional_value), self.__formatted_version(statement["value"])) > 0 else False
+            except Exception as e:
+                return False
+
+        if operator == "vgte":
+            try:
+                return True if semver.compare(self.__formatted_version(optional_value), self.__formatted_version(statement["value"])) >= 0 else False
+            except:
+                return False
+
+        return False  
 
     def __parse(self):
 
