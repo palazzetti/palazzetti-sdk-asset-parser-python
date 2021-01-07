@@ -19,5 +19,5 @@ setuptools.setup(
         'six'
     ],
     python_requires='>=3.6',
-    data_files=[('data', ['data/asset_parser.json'])]
+    data_files=[('data', ['palazzetti_sdk_asset_parser/data/asset_parser.json'])]
 )
