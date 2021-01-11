@@ -7,6 +7,7 @@ class AssetCapabilities(object):
         self._flag_has_setpoint = props.get("flag_impostazione_setpoint", False)
         self._flag_has_switch_on_off = props.get("flag_accensione_macchina", False)
         self._flag_error_status = props.get("flag_presenza_errore_macchina", False)
+        self._flag_has_power = False if props.get("flag_assenza_regolazione_potenza", False) == True else True
 
         self._flag_has_switch_on_multifire_pellet = props.get("flag_prenotazione_accensione_pellet", False)
         self._flag_is_air = props.get("flag_tipologia_aria", False)
@@ -62,6 +63,10 @@ class AssetCapabilities(object):
     @property
     def flag_has_ecostart(self):
         return self._flag_has_ecostart
+
+    @property
+    def flag_has_power(self):
+        return self._flag_has_power
 
     @property    
     def flag_has_time_sync(self):

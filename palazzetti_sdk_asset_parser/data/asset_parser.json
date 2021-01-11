@@ -7,6 +7,14 @@
                                "value": "2.1.1"
                                }
                                ],
+    "flag_assenza_regolazione_potenza": [
+                                     {
+                                     "path": "GET_STDT",
+                                     "key": "STOVETYPE",
+                                     "operator": "eq",
+                                     "value": 8
+                                     }
+                                     ],
     "flag_sincronizzazione_orario": [
                                      {
                                      "path": "GET_STDT",
