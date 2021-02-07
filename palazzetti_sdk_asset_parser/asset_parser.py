@@ -133,13 +133,13 @@ class AssetParser(object):
 
         if operator == "vgt":
             try:
-                return True if semver.compare(self.__formatted_version(optional_value), self.__formatted_version(statement["value"])) > 0 else False
+                return True if semver.VersionInfo.compare(self.__formatted_version(optional_value), self.__formatted_version(statement["value"])) > 0 else False
             except Exception as e:
                 return False
 
         if operator == "vgte":
             try:
-                return True if semver.compare(self.__formatted_version(optional_value), self.__formatted_version(statement["value"])) >= 0 else False
+                return True if semver.VersionInfo.compare(self.__formatted_version(optional_value), self.__formatted_version(statement["value"])) >= 0 else False
             except:
                 return False
 
