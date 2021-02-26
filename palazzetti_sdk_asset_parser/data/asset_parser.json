@@ -186,6 +186,45 @@
       "value": 3
     }
   ],
+  "flag_presenza_sensore_pellet_leveltronic": [
+    {
+      "path": "GET_STDT",
+      "key": "PSENSTYPE",
+      "operator": "eq",
+      "value": 1
+    }
+  ],
+  "flag_presenza_sensore_pellet_capacitivo": [
+    {
+      "path": "GET_STDT",
+      "key": "PSENSTYPE",
+      "operator": "eq",
+      "value": 2
+    }
+  ],
+  "value_leveltronic_minimo": {
+    "path": "GET_STDT",
+    "key": "PSENSLMIN"
+  },
+  "value_leveltronic_soglia": {
+    "path": "GET_STDT",
+    "key": "PSENSLTSH"
+  },
+  "value_leveltronic_level": {
+    "path": "GET_ALLS",
+    "key": "PLEVEL"
+  },
+  "flag_presenza_temperatura_combustione": [
+    {
+      "path": "GET_STDT",
+      "key": "STOVETYPE",
+      "operator": "in",
+      "value": [
+        7,
+        8
+      ]
+    }
+  ],
   "flag_presenza_temperatura_uscita_aria": [
     {
       "path": "GET_STDT",
@@ -287,6 +326,10 @@
   "value_temperatura_sonda_uscita_aria": {
     "path": "GET_ALLS",
     "key": "T4"
+  },
+  "value_temperatura_sonda_combustione_legna": {
+    "path": "GET_ALLS",
+    "key": "T3"
   },
   "value_power_rilevato": {
     "path": "GET_ALLS",
