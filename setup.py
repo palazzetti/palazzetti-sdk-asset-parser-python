@@ -8,6 +8,7 @@ setuptools.setup(
     version="1.0.10",
     author="Palazzetti Lelio Spa",
     author_email="info@palazzetti.it",
+    license="MIT",
     description="IoT Device Capability Parser",
     long_description=long_description,
     long_description_content_type="text/markdown",
